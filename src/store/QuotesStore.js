@@ -37,7 +37,6 @@ decorate(QuotesStore, {
   state: observable,
   errorMessage: observable,
   fetchQuotes: action,
-  length: computed,
   getState: computed,
   getErrorMessage: computed,
   getQuotes: computed
