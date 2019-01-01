@@ -2,6 +2,7 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+import AnimatedButton from './components/animatedButton/AnimatedButton';
 import type {Props} from './types';
 import {styles} from './styles';
 
@@ -11,9 +12,17 @@ const TopNavigator = (props: Props) => (
       <Icon name={props.leftIconName} size={props.leftIconSize} color={props.leftIconColor} />
     </TouchableOpacity>
     <Text style={{color: 'white'}}>{props.titleText}</Text>
-    <TouchableOpacity onPress={() => props.onRightIconPress()}>
-      <Icon name={props.rightIconName} size={props.rightIconSize} color={props.rightIconColor} />
-    </TouchableOpacity>
+    {props.rightIconName !== '' ? (
+      <AnimatedButton
+        onIconPress={props.onRightIconPress}
+        iconColor={props.rightIconColor}
+        iconName={props.rightIconName}
+        iconSize={props.rightIconSize}
+        isAnimated={true}
+      />
+    ) : (
+      <View />
+    )}
   </View>
 );
 
@@ -21,7 +30,7 @@ TopNavigator.defaultProps = {
   containerStyle: styles.container,
   leftIconName: 'ios-menu',
   onLeftIconPress: () => {},
-  leftIconSize: 15,
+  leftIconSize: 20,
   leftIconColor: '#fff',
   rightIconName: 'ios-refresh',
   onRightIconPress: () => {},
