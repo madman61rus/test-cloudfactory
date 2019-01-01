@@ -2,6 +2,7 @@
 import type EStyleSheet from 'react-native-extended-stylesheet';
 
 export type Props = {
+  animated: boolean,
   containerStyle: EStyleSheet,
   leftIconName: string,
   onLeftIconPress: () => void,

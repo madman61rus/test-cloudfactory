@@ -18,7 +18,7 @@ const TopNavigator = (props: Props) => (
         iconColor={props.rightIconColor}
         iconName={props.rightIconName}
         iconSize={props.rightIconSize}
-        isAnimated={true}
+        isAnimated={props.animated}
       />
     ) : (
       <View />
@@ -27,6 +27,7 @@ const TopNavigator = (props: Props) => (
 );
 
 TopNavigator.defaultProps = {
+  animated: false,
   containerStyle: styles.container,
   leftIconName: 'ios-menu',
   onLeftIconPress: () => {},
