@@ -1,5 +1,5 @@
 //@flow
-import {observable, action, computed, decorate} from 'mobx';
+import {observable, action, computed, decorate, values, keys} from 'mobx';
 import type {PendingStatus} from './types';
 import {fetchTickets} from '../api/fetchTickets';
 
@@ -9,7 +9,6 @@ export class QuotesStore {
   errorMessage: string = '';
 
   fetchQuotes() {
-    this.quotes = [];
     this.state = 'pending';
     this.errorMessage = '';
     //timeout for animate pending
@@ -35,6 +34,10 @@ export class QuotesStore {
   get getQuotes() {
     return this.quotes;
   }
+
+  get getKeys() {
+    return keys(this.quotes);
+  }
 }
 
 decorate(QuotesStore, {
@@ -44,7 +47,8 @@ decorate(QuotesStore, {
   fetchQuotes: action,
   getState: computed,
   getErrorMessage: computed,
-  getQuotes: computed
+  getQuotes: computed,
+  getKeys: computed
 });
 
 export default new QuotesStore();
