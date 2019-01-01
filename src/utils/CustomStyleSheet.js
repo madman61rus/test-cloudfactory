@@ -5,7 +5,7 @@ import type {EStyleSheet as EStyleSheetType} from 'react-native-extended-stylesh
 EStyleSheet.build({
   $backgroundColorSide: '#1b1b22',
   $backgroundColorCenter: '#242530',
-  $titleColor: '#68686f',
+  $containerColor: 'rgba(56, 72, 104, 0.7)',
   $whiteColor: '#fff',
   $blackColor: '#000'
 });
