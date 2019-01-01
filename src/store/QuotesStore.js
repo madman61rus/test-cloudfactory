@@ -12,11 +12,16 @@ export class QuotesStore {
     this.quotes = [];
     this.state = 'pending';
     this.errorMessage = '';
-    fetchTickets().then(data => {
-      this.quotes = data.data;
-      this.state = data.status ? 'done' : 'error';
-      this.errorMessage = data.errorMessage;
-    });
+    //timeout for animate pending
+    setTimeout(
+      () =>
+        fetchTickets().then(data => {
+          this.quotes = data.data;
+          this.state = data.status ? 'done' : 'error';
+          this.errorMessage = data.errorMessage;
+        }),
+      3000
+    );
   }
 
   get getState() {
