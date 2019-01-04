@@ -6,9 +6,16 @@ import AnimatedButton from './components/animatedButton/AnimatedButton';
 import type {Props} from './types';
 import {styles} from './styles';
 
+const hitSlop = {
+  top: 20,
+  bottom: 20,
+  left: 20,
+  right: 20
+};
+
 const TopNavigator = (props: Props) => (
   <View style={props.containerStyle}>
-    <TouchableOpacity onPress={() => props.onLeftIconPress()}>
+    <TouchableOpacity hitSlop={hitSlop} onPress={() => props.onLeftIconPress()}>
       <Icon name={props.leftIconName} size={props.leftIconSize} color={props.leftIconColor} />
     </TouchableOpacity>
     <Text style={{color: 'white'}}>{props.titleText}</Text>
