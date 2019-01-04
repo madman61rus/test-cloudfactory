@@ -1,9 +1,10 @@
 //@flow
 import React, {Component} from 'react';
 import {FlatList} from 'react-native';
-import {TopNavigator, GradientWrapper} from '../../components';
+import {TopNavigator, GradientWrapper, Alert} from '../../components';
 import {QuoteContainer} from './components';
 import {observer, inject} from 'mobx-react';
+import {styles} from './styles';
 import {toJS} from 'mobx';
 import type {Props} from './types';
 
@@ -23,8 +24,14 @@ class QuotesScreen extends Component<Props> {
           onRightIconPress={() => this.props.navigation.openDrawer()}
           animated={this.props.quotesStore.state === 'pending'}
         />
+        {this.props.quotesStore.state === 'error' && (
+          <Alert
+            text={this.props.quotesStore.getErrorMessage}
+            styleContainer={styles.alertContainer}
+          />
+        )}
         <FlatList
-          renderItem={(item) => <QuoteContainer item={item} />}
+          renderItem={item => <QuoteContainer item={item} />}
           data={Object.entries(toJS(this.props.quotesStore.getQuotes))}
           keyExtractor={item => item[0]}
         />

@@ -10,7 +10,7 @@ const QuoteContainer = (props: Props) => {
       <View style={[styles.pairContainer, {alignItems: 'flex-start'}]}>
         <Text style={styles.pairTitleText}>{key.replace('_', '/')}</Text>
       </View>
-      <View style={styles.pairContainer}>
+      <View style={styles.bidsContainer}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Text style={styles.describeText}>lowestAsk: </Text>
           <Text style={styles.pairBidsText}>{value.lowestAsk}</Text>
@@ -20,12 +20,15 @@ const QuoteContainer = (props: Props) => {
           <Text style={styles.pairBidsText}>{value.highestBid}</Text>
         </View>
       </View>
-      <View style={[styles.pairContainer, {alignItems: 'flex-end'}]}>
-        <Text
-          style={[styles.percentText, {color: +value.percentChange >= 0 ? '#2EC4B6' : '#E71D36'}]}
+      <View style={[styles.percentageContainer, {alignItems: 'flex-end'}]}>
+        <View
+          style={[
+            styles.percent,
+            {backgroundColor: +value.percentChange >= 0 ? '#7ebc59' : '#E71D36'}
+          ]}
         >
-          {value.percentChange}
-        </Text>
+          <Text style={[styles.percentText]}>{value.percentChange}</Text>
+        </View>
       </View>
     </View>
   );
