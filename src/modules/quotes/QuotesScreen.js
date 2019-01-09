@@ -6,7 +6,11 @@ import {QuoteContainer} from './components';
 import {observer, inject} from 'mobx-react';
 import {styles} from './styles';
 import {toJS} from 'mobx';
-import type {Props} from './types';
+import type {QuotesStore} from '../../store/QuotesStore';
+
+type Props = {
+  quotesStore: QuotesStore
+};
 
 class QuotesScreen extends Component<Props> {
   componentDidMount(): void {

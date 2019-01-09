@@ -4,7 +4,10 @@ import {SafeAreaView, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {styles} from './styles';
-import type {Props} from 'types';
+
+type Props = {
+  children: React.Node
+};
 
 const GradientWrapper = (props: Props) => (
   <View style={styles.container}>

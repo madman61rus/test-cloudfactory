@@ -3,14 +3,29 @@ import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import AnimatedButton from './components/animatedButton/AnimatedButton';
-import type {Props} from './types';
 import {styles} from './styles';
+import type EStyleSheet from 'react-native-extended-stylesheet';
 
 const hitSlop = {
   top: 20,
   bottom: 20,
   left: 20,
   right: 20
+};
+
+type Props = {
+  animated: boolean,
+  containerStyle: EStyleSheet,
+  leftIconName: string,
+  onLeftIconPress: () => void,
+  leftIconSize: number,
+  leftIconColor: string,
+  rightIconName: string,
+  onRightIconPress: () => void,
+  rightIconSize: number,
+  rightIconColor: string,
+  titleText: string,
+  titleStyle: EStyleSheet
 };
 
 const TopNavigator = (props: Props) => (

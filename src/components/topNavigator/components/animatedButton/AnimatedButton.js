@@ -4,7 +4,14 @@ import {View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {BallIndicator} from 'react-native-indicators';
 import {TouchableOpacity} from 'react-native';
-import type {Props} from './types';
+
+type Props = {
+  onIconPress: () => void,
+  iconName: string,
+  iconSize: number,
+  iconColor: string,
+  isAnimated: boolean
+};
 
 const AnimatedButton = (props: Props) =>
   props.isAnimated ? (
